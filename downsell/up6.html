@@ -38,6 +38,7 @@
   .signline{margin-top:18px;border-top:1px solid #d8cdb6;padding-top:12px;display:flex;justify-content:space-between;font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:#5a564c}
   .foot{margin-top:16px;text-align:center;font-size:11px;color:#8a8470;line-height:1.6}
 </style>
+<script src="https://trackou.io/scripts/utm.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -66,7 +67,7 @@
   (function(){
     document.getElementById('data').textContent='São Vicente, '+new Date().toLocaleDateString('pt-BR');
     try{var n=(localStorage.getItem('nome')||'').trim();if(n)document.getElementById('hi').textContent=', '+n.split(' ')[0];}catch(e){}
-    document.getElementById('btn').addEventListener('click',function(){redirect('up6_ds');});
+    document.getElementById('btn').addEventListener('click',function(){redirect('registro_contrato_ds');});
   })();
 </script>
 <script src="../js/back-redirect.js?v=4"></script>

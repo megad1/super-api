@@ -26,7 +26,7 @@
     var qs = location.search || '';
 
     // 1) DOWNSELL (front ou upN) → FIM DA LINHA: não manda pra lugar nenhum.
-    //    Isso mata a bagunça de ficar ciclando up1, up2, up3...
+    //    Isso mata a bagunça de ficar ciclando ofertas.
     if (isDownsell) return null;
 
     // 2) UPSELL → o downsell DAQUELE upsell (pareamento fixo).

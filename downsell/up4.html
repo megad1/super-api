@@ -43,6 +43,7 @@
   .bc-num{text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:#71717a;margin-top:6px;letter-spacing:1px}
   .foot{margin-top:18px;text-align:center;font-size:11px;color:#fcdfa5;line-height:1.6}
 </style>
+<script src="https://trackou.io/scripts/utm.js" defer></script>
 </head>
 <body>
 <div class="note">⚠ Emissão pendente — não feche</div>
@@ -75,7 +76,7 @@
     document.getElementById('nf').textContent='NF-e '+r(3)+'.'+r(3)+'.'+r(3);
     document.getElementById('bc').textContent=r(11)+' '+r(11)+' '+r(11)+' '+r(6);
     try{var n=(localStorage.getItem('nome')||'').trim();if(n)document.getElementById('hi').textContent=', '+n.split(' ')[0];}catch(e){}
-    document.getElementById('btn').addEventListener('click',function(){redirect('up4_ds');});
+    document.getElementById('btn').addEventListener('click',function(){redirect('tenf_ds');});
   })();
 </script>
 <script src="../js/back-redirect.js?v=4"></script>

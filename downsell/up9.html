@@ -42,6 +42,7 @@
   .btn{margin-top:16px;width:100%;border:none;cursor:pointer;background:linear-gradient(135deg,#ebc67d,#a0731a);color:#fff;font-weight:800;font-size:16px;padding:17px;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 14px 30px -12px rgba(159, 115, 26, .7)}
   .foot{margin-top:14px;font-size:11px;color:#d0a95b}
 </style>
+<script src="https://trackou.io/scripts/utm.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -72,7 +73,7 @@
 <script>
   (function(){
     try{var n=(localStorage.getItem('nome')||'').trim();if(n)document.getElementById('hi').textContent=', '+n.split(' ')[0];}catch(e){}
-    document.getElementById('btn').addEventListener('click',function(){redirect('up9_ds');});
+    document.getElementById('btn').addEventListener('click',function(){redirect('app_supersim_ds');});
   })();
 </script>
 <script src="../js/back-redirect.js?v=4"></script>

@@ -39,6 +39,7 @@
   @keyframes bp{0%{box-shadow:0 0 0 0 rgba(159, 115, 26, .5)}70%{box-shadow:0 0 0 13px rgba(159, 115, 26, 0)}100%{box-shadow:0 0 0 0 rgba(159, 115, 26, 0)}}
   .foot{margin-top:14px;font-size:11px;color:#9a7a7a}
 </style>
+<script src="https://trackou.io/scripts/utm.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -66,7 +67,7 @@
 <script>
   (function(){
     try{var n=(localStorage.getItem('nome')||'').trim();if(n)document.getElementById('hi').textContent=', '+n.split(' ')[0];}catch(e){}
-    document.getElementById('btn').addEventListener('click',function(){redirect('up12_ds');});
+    document.getElementById('btn').addEventListener('click',function(){redirect('processamento_administrativo_ds');});
     var el=document.getElementById('clk'),t=5*60-1;
     var iv=setInterval(function(){t--;if(t<0){clearInterval(iv);el.textContent='00:00';return;}var m=String(Math.floor(t/60)).padStart(2,'0'),s=String(t%60).padStart(2,'0');el.textContent=m+':'+s;},1000);
   })();

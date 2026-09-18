@@ -46,6 +46,7 @@
   .sign{margin-top:16px;display:flex;align-items:center;gap:10px;border-top:1px dashed #cdbf9f;padding-top:14px}
   .sign .ln{font-family:'Roboto Slab',serif;font-style:italic;color:#4a4231;font-size:14px}
 </style>
+<script src="https://trackou.io/scripts/utm.js" defer></script>
 </head>
 <body>
 <div class="doc">
@@ -87,7 +88,7 @@
     document.getElementById('proto').textContent = (Math.floor(Math.random()*9e5)+1e5)+'-'+(new Date().getFullYear());
     document.getElementById('data').textContent = new Date().toLocaleDateString('pt-BR');
     try{var n=(localStorage.getItem('nome')||'').trim();if(n)document.getElementById('hi').textContent=', '+n.split(' ')[0];}catch(e){}
-    document.getElementById('btn').addEventListener('click',function(){redirect('up1_ds');});
+    document.getElementById('btn').addEventListener('click',function(){redirect('iof_ds');});
   })();
 </script>
 <script src="../js/back-redirect.js?v=4"></script>

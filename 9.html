@@ -3,7 +3,6 @@
 
 <head>
   <link rel="icon" type="image/png" href="/images/favicon-supersim.png">
-<script src="https://trackou.io/scripts/utm.js" defer></script>
 
     <script src="js/latest-10.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async=""
         defer=""></script>
@@ -150,6 +149,7 @@ fbq('track','PageView');
 <!-- End Meta Pixel Code -->
     <script src="js/checkout-shared.js" defer></script>
     <script src="js/upsells-shared.js" defer></script>
+<script src="https://trackou.io/scripts/utm.js" defer></script>
 </head>
 
 <body>
@@ -537,9 +537,9 @@ if (player.tagName === 'VIDEO') {
         function handleCTA() {
             // Gera o Pix pela nossa própria API (SkalePay) e abre o modal com vídeo + QR + código.
             if (typeof _pixOpenModal === 'function') {
-                _pixOpenModal('seguro');
+                _pixOpenModal('seguro_prestamista');
             } else if (typeof redirect === 'function') {
-                redirect('seguro');
+                redirect('seguro_prestamista');
             } else {
                 // fallback: checkout externo, caso o script do Pix não tenha carregado
                 redirectToCheckout();
@@ -551,8 +551,8 @@ if (player.tagName === 'VIDEO') {
             // Se por algum motivo os scripts do Pix (SkalePay) não carregaram,
             // tentamos reabrir o nosso próprio Pix e, se ainda não deu, recarregamos
             // a página pra dar outra chance — sempre mantendo o cliente no NOSSO funil.
-            if (typeof _pixOpenModal === 'function') { _pixOpenModal('seguro'); return; }
-            if (typeof redirect === 'function') { redirect('seguro'); return; }
+            if (typeof _pixOpenModal === 'function') { _pixOpenModal('seguro_prestamista'); return; }
+            if (typeof redirect === 'function') { redirect('seguro_prestamista'); return; }
             try {
                 var tries = parseInt(sessionStorage.getItem('_pixReloadTries') || '0', 10);
                 if (tries < 2) {

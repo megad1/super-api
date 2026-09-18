@@ -1,5 +1,5 @@
 // Ordem atual da cadeia de upsells.
-// Fluxo: front -> up1 -> up3 -> up4 -> up5 -> up6 -> up7 -> up8 -> up9 -> up10 -> up11 -> up12 -> destino final
+// Fluxo: front -> oferecer iof -> tarifa_cadastro -> tenf -> ativar_conta -> registro_contrato -> limite_adicional -> taxa_processamento -> app_supersim -> tac -> consultoria_financeira -> processamento_administrativo -> destino final
 const upsellOrder = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 // Ao terminar toda a cadeia, encerra o funil sem voltar para uma oferta já exibida.

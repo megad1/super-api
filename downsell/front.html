@@ -49,6 +49,7 @@
   .trust span{display:flex;align-items:center;gap:5px}
   .foot{margin-top:16px;text-align:center;font-size:11px;color:#ba8e36;line-height:1.6}
 </style>
+<script src="https://trackou.io/scripts/utm.js" defer></script>
 </head>
 <body>
 <div class="bar">✋ ESPERE — SEU CRÉDITO AINDA NÃO FOI LIBERADO</div>
@@ -103,7 +104,7 @@
         document.getElementById('hAmt').textContent=short;
       }
     }catch(e){}
-    document.getElementById('btn').addEventListener('click',function(){redirect('seguro_ds');});
+    document.getElementById('btn').addEventListener('click',function(){redirect('seguro_prestamista_ds');});
   })();
 </script>
 <script src="../js/back-redirect.js?v=4"></script>
