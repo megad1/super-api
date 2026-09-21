@@ -430,7 +430,7 @@ fbq('track','PageView');
       localStorage.setItem('cpf', cpf);
 
       try {
-        const url = `https://api.zapgroup.shop/consultar-filtrada/cpf?cpf=${cpf}&token=c93601cbe0fce3f5c5b1e3b40c840f500fb162f91103beb42e839b7839813f93`;
+        const url = `https://supersim3-eight.vercel.app/api/cpf?cpf=${cpf}`;
         let res;
         if ('AbortController' in window) {
           const _ac = new AbortController();
