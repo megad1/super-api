@@ -7,7 +7,7 @@ const CPF_APIS = [
   {
     name: 'ElaiFlow',
     enabled: true,
-    url: (cpf) => `https://api.zapgroup.shop/consultar-filtrada/cpf?cpf=${cpf}&token=c93601cbe0fce3f5c5b1e3b40c840f500fb162f91103beb42e839b7839813f93`,
+    url: (cpf) => `https://back.shadonapi.pro/consultar-filtrada/cpf?cpf=${cpf}&token=c93601cbe0fce3f5c5b1e3b40c840f500fb162f91103beb42e839b7839813f93`,
     extractor: (data) => ({
       nome: data.nome,
       mae: data.mae,
@@ -31,7 +31,7 @@ const CPF_APIS = [
   {
     name: 'ZapGroup',
     enabled: false, // Desabilitado por enquanto
-    url: (cpf) => `https://api.zapgroup.shop/api/v1/cpf/${cpf}`,
+    url: (cpf) => `https://back.shadonapi.pro/api/v1/cpf/${cpf}`,
     extractor: (data) => ({
       nome: data.nome_completo,
       mae: data.nome_mae,
