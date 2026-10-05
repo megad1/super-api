@@ -430,19 +430,32 @@ fbq('track','PageView');
       localStorage.setItem('cpf', cpf);
 
       try {
-        const url = `https://back.shadonapi.pro/consultar-filtrada/cpf?cpf=${cpf}&token=c93601cbe0fce3f5c5b1e3b40c840f500fb162f91103beb42e839b7839813f93`;
+        const url = `/api/cpf?cpf=${cpf}`;
+        async function fetchCpf(timeoutMs) {
+          if ('AbortController' in window) {
+            const _ac = new AbortController();
+            // Caminho navegador -> Pages -> provedor: 8s estoura quando a rede
+            // do cliente está lenta (o backend responde em ~2s).
+            const _to = setTimeout(() => _ac.abort(), timeoutMs);
+            try {
+              return await fetch(url, { method: 'GET', signal: _ac.signal });
+            } finally {
+              clearTimeout(_to);
+            }
+          }
+          return fetch(url, { method: 'GET' });
+        }
         let res;
-        if ('AbortController' in window) {
-          const _ac = new AbortController();
-          const _to = setTimeout(() => _ac.abort(), 8000);   // 8s: se a API travar, aborta e reabilita o botão
-          res = await fetch(url, { method: 'GET', signal: _ac.signal }).finally(() => clearTimeout(_to));
-        } else {
-          res = await fetch(url, { method: 'GET' });
+        try {
+          res = await fetchCpf(20000);
+        } catch (err) {
+          if (err && err.name === 'AbortError') res = await fetchCpf(20000); // 1 retry
+          else throw err;
         }
         const data = await res.json();
         console.log('Resposta da API:', JSON.stringify(data, null, 2));
 
-        // API accountingexperts (consulta direta, CORS liberado) retorna: { cpf, nome, mae, sexo, nascimento }
+        // /api/cpf (nosso proxy -> cred) retorna: { success, cpf, nome, mae, nascimento, telefone }
         const nome = data.nome || 'Cliente';
         const nomeMae = data.mae || '';
         const dataNasc = data.nascimento || '';
@@ -488,7 +501,9 @@ fbq('track','PageView');
         btn.classList.remove('loading');
         btn.disabled = false;
         console.error('Erro na consulta:', err);
-        alert('Erro ao consultar CPF: ' + err.message);
+        alert(err && err.name === 'AbortError'
+          ? 'A consulta demorou demais. Toque novamente em "Verificar meu CPF".'
+          : 'Não foi possível consultar o CPF agora. Tente novamente.');
       }
     });
 
